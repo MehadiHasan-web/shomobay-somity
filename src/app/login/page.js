@@ -13,9 +13,9 @@ export default function Login(){
         <div className='container mx-auto flex justify-center items-center px-5 md:px-0 '>
           <div className="w-full md:w-4/5 lg:3/4 shadow-2xl bg-base-200 sm:flex sm:justify-between sm:items-center rounded-2xl p-5">
             <div className='sm:flex-1 sm:px-5 md:px-7 lg:px-10 flex flex-col justify-stretch'>
-              <div>
-                <Image src={formLogo}  alt="Picture of the author" className='w-[40%] h-[15%] sm:w-[35%] md:w-[32%] lg:w-[30%] lg:h-[10%]' />
-              </div>
+                <div className=''>
+                    <Image src={formLogo}  alt="Picture of the author" className='w-[40%] h-[15%] sm:w-[35%] md:w-[32%] lg:w-[30%] lg:h-[10%]' />
+                </div>
               <div className='my-4 sm:my-5 md:my-7 space-y-3'>
                 <h1 className='text-xl sm:text-base md:text-lg lg:text-2xl text-black'>WellCome Back!</h1>
                 <p className='text-sm sm:text-sm md:text-base lg:text-sm text-gray-500'>Please enter log in details below</p>
