@@ -7,6 +7,7 @@ export default function Home() {
          <h2>Home</h2>
    
         <Link href="/login" >  Login </Link>
+        <Link href="/user-profile" > User Profile </Link>
 
     </div>
   )
