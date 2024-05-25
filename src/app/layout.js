@@ -1,5 +1,8 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Dashboard from "@/components/dashboard/page";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* dashboard section start */}
+        <div className="h-screen">
+          <Dashboard children={children}></Dashboard>
+        </div>
+        {/* dashboard section end */}
+        </body>
     </html>
   );
 }
