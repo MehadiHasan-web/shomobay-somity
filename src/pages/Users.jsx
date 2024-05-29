@@ -6,7 +6,7 @@ import { format } from "date-fns";
 
 const Users = () => {
 
-  const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [adminData, setAdminData] = useState([]);
     // const { baseURL } = useContext(AuthContext)
@@ -38,96 +38,96 @@ const Users = () => {
     };
 
     // get return data 
-  //   useEffect(() => {
-  //     const token = localStorage.getItem('token');
+    //   useEffect(() => {
+    //     const token = localStorage.getItem('token');
 
-  //     axios.get(`${baseURL}/salesReturn/`, {
-  //         headers: { 'Authorization': 'token ' + token }
-  //     })
-  //         .then((res) => res.data)
-  //         .then((data) => {
-  //             console.log(data)
-  //             setAdminData(data)
-  //         })
-  //         .catch((error) => console.error("Error fetching data:", error));
-  // }, [baseURL]);
+    //     axios.get(`${baseURL}/salesReturn/`, {
+    //         headers: { 'Authorization': 'token ' + token }
+    //     })
+    //         .then((res) => res.data)
+    //         .then((data) => {
+    //             console.log(data)
+    //             setAdminData(data)
+    //         })
+    //         .catch((error) => console.error("Error fetching data:", error));
+    // }, [baseURL]);
     useEffect(() => {
-      const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token');
 
-      fetch(`https://rpos.pythonanywhere.com/api/v1/salesReturn/`, {
-          headers: { 'Authorization': 'token ' + token }
-      })
-          .then((res) => res.data)
-          .then((data) => {
-              console.log(data)
-              setAdminData(data)
-          })
-          .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
-
+        fetch(`https://rpos.pythonanywhere.com/api/v1/salesReturn/`, {
+            headers: { 'Authorization': 'token ' + token }
+        })
+            .then((res) => res.data)
+            .then((data) => {
+                console.log(data)
+                setAdminData(data)
+            })
+            .catch((error) => console.error("Error fetching data:", error));
+    }, []);
 
 
 
 
 
-  const showDataPerPage = (e) => {
-    e.preventDefault();
-    setPostPerPage(parseInt(e.target.value));
-}
-
-  // Handle search input change
-  const handleSearchInputChange = (e) => {
-    setSearchText(e.target.value);
-};
-
-  // clear search
-  const handleClearSearch = (e) => {
-    e.preventDefault();
-    setSearchText("");
-};
-
-  // date filtering 
-//   useEffect(() => {
-
-//     const formattedStartDate = format(startDate, 'yyyy-MM-dd');
-//     const formattedEndDate = format(endDate, 'yyyy-MM-dd');
-
-//     const dateSearch = adminData.filter((record) => {
-//         const recordDate = new Date(record.return_date);
-//         const formattedRecordDate = format(recordDate, 'yyyy-MM-dd');
-//         return formattedRecordDate >= formattedStartDate && formattedRecordDate <= formattedEndDate;
-
-//     })
-
-//     // make new array for excel sheet 
-//     const newData = dateSearch.map((record) => {
-//         return {
-//             Sales_ID: record.sale.id,
-//             Customer_Name: record.sale.customer?.name,
-//             Customer_Number: record.sale.customer?.phone_number,
-//             Customer_Address: record.sale.customer?.address,
-//             // Order_Date: record?.sale.created_date,
-//             Return_date: format(record?.return_date, 'yyyy-MM-dd'),
-//             Price: record?.sale.total,
-//             // Courier_ID: record.sale.customer?.curierImgoice,
-//         };
-//     });
-//     setSheet(newData)
-
-//     setFilteredData(dateSearch)
-// }, [adminData, setFilteredData, startDate, endDate, setSheet])
 
 
+    const showDataPerPage = (e) => {
+        e.preventDefault();
+        setPostPerPage(parseInt(e.target.value));
+    }
+
+    // Handle search input change
+    const handleSearchInputChange = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    // clear search
+    const handleClearSearch = (e) => {
+        e.preventDefault();
+        setSearchText("");
+    };
+
+    // date filtering 
+    //   useEffect(() => {
+
+    //     const formattedStartDate = format(startDate, 'yyyy-MM-dd');
+    //     const formattedEndDate = format(endDate, 'yyyy-MM-dd');
+
+    //     const dateSearch = adminData.filter((record) => {
+    //         const recordDate = new Date(record.return_date);
+    //         const formattedRecordDate = format(recordDate, 'yyyy-MM-dd');
+    //         return formattedRecordDate >= formattedStartDate && formattedRecordDate <= formattedEndDate;
+
+    //     })
+
+    //     // make new array for excel sheet 
+    //     const newData = dateSearch.map((record) => {
+    //         return {
+    //             Sales_ID: record.sale.id,
+    //             Customer_Name: record.sale.customer?.name,
+    //             Customer_Number: record.sale.customer?.phone_number,
+    //             Customer_Address: record.sale.customer?.address,
+    //             // Order_Date: record?.sale.created_date,
+    //             Return_date: format(record?.return_date, 'yyyy-MM-dd'),
+    //             Price: record?.sale.total,
+    //             // Courier_ID: record.sale.customer?.curierImgoice,
+    //         };
+    //     });
+    //     setSheet(newData)
+
+    //     setFilteredData(dateSearch)
+    // }, [adminData, setFilteredData, startDate, endDate, setSheet])
 
 
-  return (
-    <div>
-      {/* table section start */}
-      <div >
+
+
+    return (
+        <div>
+            {/* table section start */}
+            <div >
                 <div className="md:container md:mx-auto md:px-12 px-2">
                     <div className="flex justify-center my-3 ">
-                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">Sales Return </h2>
+                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">All User</h2>
                     </div>
 
                     {/* search bar  */}
@@ -142,7 +142,7 @@ const Users = () => {
                                     <option value={50} className="font-bold">Show 50</option>
                                     <option value={100} className="font-bold">Show 100</option>
                                 </select>
-                                
+
                                 <div className="w-full xl:w-44 mx-1 mb-1">
                                     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="w-full overflow-hidden border input input-sm  rounded-full" />
                                 </div>
@@ -257,9 +257,9 @@ const Users = () => {
                     </div>
                 </div>
             </div>
-      {/* table section end */}
-    </div>
-  );
+            {/* table section end */}
+        </div>
+    );
 };
 
 export default Users;
