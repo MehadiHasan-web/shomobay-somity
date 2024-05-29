@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Dashboard = () => {
@@ -7,6 +8,7 @@ const Dashboard = () => {
       <h1>
         Hello world!
       </h1>
+      <Link to={"/myloan"}>My Loan</Link>
     </div>
   );
 };
