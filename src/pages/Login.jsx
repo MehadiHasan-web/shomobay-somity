@@ -1,26 +1,11 @@
 
 import { Link } from 'react-router-dom';
+import login_img from '../../public/login_img.png';
 
 const Login = () => {
   return (
-    <div>
-
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button>
-      <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">Press ESC key or click the button below to close</p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
-          </div>
-        </div>
-      </dialog>
-
-      <div className='bg-gradient-to-r from-pink-100  to-green-100 py-12'>
+    <div className=''>
+      <div className='bg-gradient-to-r from-pink-100  to-green-100 py-12 h-screen flex items-center'>
         <div className='container mx-auto flex justify-center items-center px-5 md:px-0 '>
           <div className="w-full md:w-4/5 lg:3/4 shadow-2xl bg-base-200 sm:flex sm:justify-between sm:items-center rounded-2xl p-5">
             <div className='sm:flex-1 sm:px-5 md:px-7 lg:px-10 flex flex-col justify-stretch'>
@@ -47,15 +32,15 @@ const Login = () => {
               </form>
               <div className="divider">or continue</div>
               {/* <button className=" flex justify-center items-center gap-2 border-[1px] border-gray-300 py-2 rounded-xl my-3">
-            <img src={googlelogo} className='w-7 h-7'></img>
-            <span className='text-base'>Log in with Goole</span>
-            </button> */}
+                <img src={googlelogo} className='w-7 h-7'></img>
+                <span className='text-base'>Log in with Goole</span>
+              </button> */}
               <div className='flex justify-center items-center gap-2'>
                 <p className='text-sm sm:text-sm md:text-base lg:text-base text-gray-500'>Don't have an account? </p> <Link to="#" className='text-black font-semibold text-sm sm:text-sm md:text-base lg:text-base'> SignUp</Link>
               </div>
             </div>
             <div className='hidden sm:block sm:flex-1'>
-              {/* <img src={formImg} className=' w-full h-full rounded-es-[10%] rounded-xl'></img> */}
+              <img src={login_img} className=' w-full h-full rounded-bl-[80px] rounded-xl shadow-2xl'></img>
             </div>
           </div>
         </div>
