@@ -6,9 +6,9 @@ const Dashboard = () => {
   return (
     <>
       {/* sidebar and page section start */}
-      <div className="h-full lg:flex lg:justify-between lg:items-center lg:gap-5">
+      <div className="lg:flex lg:justify-between lg:items-center h-screen ">
             {/* sidebar section start */}
-            <div className="w-[13%] h-[100%] lg:py-4">
+            <div className="w-[13%] h-[100%] lg:py-4 border-r-[2px] border-r-slate-200">
               <Sidebar></Sidebar>
             </div>
             {/* sidebar section end */}

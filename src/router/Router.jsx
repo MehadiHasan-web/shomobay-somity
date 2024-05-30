@@ -1,10 +1,10 @@
 import { createBrowserRouter} from "react-router-dom";
-import MainLayout from "../layout/MainLayout";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import MyLoan from "../pages/MyLoan";
 import Users from './../pages/Users';
 import Register from "../pages/Register";
+import Loan from "../pages/Loan";
 
 
 
@@ -29,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/myloan',
         element: <MyLoan></MyLoan>
+      },
+      {
+        path: '/loan',
+        element: <Loan></Loan>
       }
     ],
   },
