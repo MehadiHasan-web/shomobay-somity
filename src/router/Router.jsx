@@ -1,9 +1,10 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import MyLoan from "../pages/MyLoan";
 import Users from './../pages/Users';
-import Register from "../pages/Register";
+// import Register from "../pages/Register";
+import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
 
 
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/register",
+        // element: <Register></Register>,
         element: <Register></Register>,
       },
       {
@@ -36,5 +38,5 @@ export const router = createBrowserRouter([
       }
     ],
   },
-  
+
 ]);

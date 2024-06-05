@@ -1,8 +1,31 @@
 
 import { Link } from 'react-router-dom';
 import login_img from '../../public/login_img.png';
+import axios from 'axios';
 
 const Login = () => {
+
+  const LoginForm = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const data = { email, password }
+    console.log(data)
+
+    axios.post('http://somobay.xcode.com.bd/api/v1/login/', data)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+    form.reset()
+
+  }
+
   return (
     <div className=''>
       <div className='bg-gradient-to-r from-pink-100  to-green-100 py-12 h-screen flex items-center'>
@@ -16,12 +39,12 @@ const Login = () => {
                 <h1 className='text-xl sm:text-base md:text-lg lg:text-2xl text-black'>WellCome Back!</h1>
                 <p className='text-sm sm:text-sm md:text-base lg:text-sm text-gray-500'>Please enter log in details below</p>
               </div>
-              <form className="space-y-5 sm:space-y-2 md:space-y-3">
+              <form onSubmit={LoginForm} className="space-y-5 sm:space-y-2 md:space-y-3">
                 <div className="form-control">
-                  <input type="email" placeholder="Email" className="input input-bordered" />
+                  <input type="email" name='email' placeholder="Email" className="input input-bordered" />
                 </div>
                 <div className="form-control">
-                  <input type="password" placeholder="password" className="input input-bordered" />
+                  <input type="password" name='password' placeholder="password" className="input input-bordered" />
                   <label className="label text-end inline-block">
                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                   </label>
