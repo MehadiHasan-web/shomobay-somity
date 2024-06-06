@@ -4,9 +4,16 @@ import login_img from '../../public/login_img.png';
 import axios from 'axios';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import useAuth from './../hooks/useAuth';
+
 
 const Login = () => {
 
+  // auth
+  const {user} = useAuth();
+
+
+  // error message
   const [error, setError] = useState('')
 
   const LoginForm = (event) => {
@@ -18,6 +25,7 @@ const Login = () => {
 
     axios.post('http://somobay.xcode.com.bd/api/v1/login/', data)
       .then((response) => {
+        console.log(response)
         if(response.status === 200){
           Swal.fire({
             position: "center",
