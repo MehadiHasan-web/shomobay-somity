@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -15,19 +16,28 @@ const Register = () => {
         const user_type = form.user_type.value;
 
         const data = { username, phoneNumber, password, user_type }
-        console.log(data)
 
         axios.post('http://somobay.xcode.com.bd/api/v1/register/', data, {
             headers: { 'Authorization': 'token ' + token },
-        }).then(function (response) {
-            console.log(response);
+        }).then((response) => {
+            console.log(response)
+            if(response.status === 201){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your data has been registered",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
         })
             .catch(function (error) {
-                console.log(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${error.message}`,
+                  });
             });
-
-
-        console.log(registerData)
         form.reset()
     }
 

@@ -13,6 +13,10 @@ import LoneList from "../pages/LoneList";
 
 export const router = createBrowserRouter([
   {
+    path: '/login',
+    element: <Login></Login>
+  },
+  {
     path: "/",
     element: <Dashboard></Dashboard>,
     children: [
@@ -25,10 +29,7 @@ export const router = createBrowserRouter([
         // element: <Register></Register>,
         element: <Register></Register>,
       },
-      {
-        path: '/login',
-        element: <Login></Login>
-      },
+      
       {
         path: '/myloan',
         element: <MyLoan></MyLoan>

@@ -2,8 +2,12 @@
 import { Link } from 'react-router-dom';
 import login_img from '../../public/login_img.png';
 import axios from 'axios';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+
+  const [error, setError] = useState('')
 
   const LoginForm = (event) => {
     event.preventDefault();
@@ -11,14 +15,23 @@ const Login = () => {
     const phoneNumber = form.number.value;
     const password = form.password.value;
     const data = { phoneNumber, password }
-    console.log(data)
 
     axios.post('http://somobay.xcode.com.bd/api/v1/login/', data)
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        if(response.status === 200){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You are logged in now!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        if(error){
+          setError(error.message);
+        }
       });
 
 
@@ -53,6 +66,7 @@ const Login = () => {
                   <button type='submit' className="btn bg-black text-white hover:bg-black">Login</button>
                 </div>
               </form>
+              <p className='text-red-500'>{error && error}</p>
               <div className="divider">or continue</div>
               {/* <button className=" flex justify-center items-center gap-2 border-[1px] border-gray-300 py-2 rounded-xl my-3">
                 <img src={googlelogo} className='w-7 h-7'></img>
@@ -68,6 +82,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
