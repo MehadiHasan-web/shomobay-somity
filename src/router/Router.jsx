@@ -1,11 +1,11 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import MyLoan from "../pages/MyLoan";
 import Users from './../pages/Users';
+// import Register from "../pages/Register";
+import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
-import UserRegister from "../pages/UserRegister";
-import Register from "../pages/Register";
 
 
 
@@ -20,10 +20,14 @@ export const router = createBrowserRouter([
         element: <Users></Users>,
       },
       {
-        path: "/user-register",
-        element: <UserRegister></UserRegister>,
+        path: "/register",
+        // element: <Register></Register>,
+        element: <Register></Register>,
       },
-      
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
       {
         path: '/myloan',
         element: <MyLoan></MyLoan>
@@ -34,12 +38,5 @@ export const router = createBrowserRouter([
       }
     ],
   },
-  {
-    path: '/register',
-    element: <Register></Register>
-  },
-  {
-    path: '/login',
-    element: <Login></Login>
-  },
+
 ]);

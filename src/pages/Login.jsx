@@ -5,21 +5,26 @@ import axios from 'axios';
 
 const Login = () => {
 
-  const loginForm = (event) => {
+  const LoginForm = (event) => {
     event.preventDefault();
     const form = event.target;
-    const phoneNumber = parseInt(form.phoneNumber.value);
+    const email = form.email.value;
     const password = form.password.value;
-    const loginData = {  phoneNumber, password }
+    const data = { email, password }
+    console.log(data)
 
-    axios.post(`http://127.0.0.1:8000/api/v1/login/`, loginData)
-    .then((data) => {
-      console.log(data.data)
-    })
+    axios.post('http://somobay.xcode.com.bd/api/v1/login/', data)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
 
     form.reset()
-  }
 
+  }
 
   return (
     <div className=''>
@@ -34,12 +39,12 @@ const Login = () => {
                 <h1 className='text-xl sm:text-base md:text-lg lg:text-2xl text-black'>WellCome Back!</h1>
                 <p className='text-sm sm:text-sm md:text-base lg:text-sm text-gray-500'>Please enter log in details below</p>
               </div>
-              <form onSubmit={loginForm} className="space-y-5 sm:space-y-2 md:space-y-3">
+              <form onSubmit={LoginForm} className="space-y-5 sm:space-y-2 md:space-y-3">
                 <div className="form-control">
-                  <input type="number" name="phoneNumber" placeholder="enter your phone number" className="input input-bordered" />
+                  <input type="email" name='email' placeholder="Email" className="input input-bordered" />
                 </div>
                 <div className="form-control">
-                  <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                  <input type="password" name='password' placeholder="password" className="input input-bordered" />
                   <label className="label text-end inline-block">
                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                   </label>
