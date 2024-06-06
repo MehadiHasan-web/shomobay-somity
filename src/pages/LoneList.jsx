@@ -8,7 +8,7 @@ const LoneList = () => {
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [adminData, setAdminData] = useState([]);
+    const [lone, setLone] = useState([]);
     // const { baseURL } = useContext(AuthContext)
     const [searchText, setSearchText] = useState("");
     const [filteredData, setFilteredData] = useState([]);
@@ -47,20 +47,20 @@ const LoneList = () => {
     //         .then((res) => res.data)
     //         .then((data) => {
     //             console.log(data)
-    //             setAdminData(data)
+    //             setLone(data)
     //         })
     //         .catch((error) => console.error("Error fetching data:", error));
     // }, [baseURL]);
     useEffect(() => {
         const token = localStorage.getItem('token');
 
-        fetch(`https://rpos.pythonanywhere.com/api/v1/salesReturn/`, {
-            headers: { 'Authorization': 'token ' + token }
+        fetch(`http://somobay.xcode.com.bd/api/v1/loan/`, {
+            headers: { 'Authorization': 'token ' + 'ef7c3c35d4d5928611da93ea788131ae89833ddf' }
         })
             .then((res) => res.data)
             .then((data) => {
                 console.log(data)
-                setAdminData(data)
+                setLone(data)
             })
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
@@ -93,7 +93,7 @@ const LoneList = () => {
     //     const formattedStartDate = format(startDate, 'yyyy-MM-dd');
     //     const formattedEndDate = format(endDate, 'yyyy-MM-dd');
 
-    //     const dateSearch = adminData.filter((record) => {
+    //     const dateSearch = lone.filter((record) => {
     //         const recordDate = new Date(record.return_date);
     //         const formattedRecordDate = format(recordDate, 'yyyy-MM-dd');
     //         return formattedRecordDate >= formattedStartDate && formattedRecordDate <= formattedEndDate;
@@ -116,7 +116,7 @@ const LoneList = () => {
     //     setSheet(newData)
 
     //     setFilteredData(dateSearch)
-    // }, [adminData, setFilteredData, startDate, endDate, setSheet])
+    // }, [lone, setFilteredData, startDate, endDate, setSheet])
 
 
 
@@ -127,7 +127,7 @@ const LoneList = () => {
             <div >
                 <div className="md:container md:mx-auto md:px-12 px-2">
                     <div className="flex justify-center my-3 ">
-                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">All User</h2>
+                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">Loan List</h2>
                     </div>
 
                     {/* search bar  */}
@@ -143,12 +143,12 @@ const LoneList = () => {
                                     <option value={100} className="font-bold">Show 100</option>
                                 </select>
 
-                                <div className="w-full xl:w-44 mx-1 mb-1">
+                                {/* <div className="w-full xl:w-44 mx-1 mb-1">
                                     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="w-full overflow-hidden border input input-sm  rounded-full" />
                                 </div>
                                 <div className="w-full xl:w-44 mx-1 mb-1">
                                     <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} className="w-full overflow-hidden border input input-sm  rounded-full" />
-                                </div>
+                                </div> */}
                                 {/* search bar  */}
                                 <input value={searchText} onChange={handleSearchInputChange} type="text" placeholder="Type here" className="input input-bordered input-sm max-w-xs w-full xl:w-44 rounded-full mx-1 mb-1  shadow hover:shadow-lg" />
                                 <button type="submit" className="btn btn-outline btn-sm rounded-full mx-3  hover:text-white ">Search</button>
@@ -167,13 +167,12 @@ const LoneList = () => {
                             <thead className="bg-slate-200	">
                                 <tr>
                                     <th className="text-black">No.</th>
-                                    <th className="text-black">Sales ID</th>
-                                    <th className="text-black">Customer Name</th>
-                                    <th className="text-black">Customer Number</th>
-                                    <th className="text-black">Customer Address</th>
-                                    <th className="text-black">Date</th>
-                                    <th className="text-black">Returned Date</th>
-                                    <th className="text-black">Total Price</th>
+                                    <th className="text-black">Name</th>
+                                    <th className="text-black">Amount</th>
+                                    <th className="text-black">Details</th>
+                                    <th className="text-black">Loan Date From</th>
+                                    <th className="text-black">Loan Date To</th>
+                                    <th className="text-black">On Going</th>
                                     {/* <th className="text-black">Invoice</th> */}
                                 </tr>
                             </thead>
@@ -230,13 +229,12 @@ const LoneList = () => {
                             <tfoot className="bg-slate-200	">
                                 <tr>
                                     <th className="text-black">No.</th>
-                                    <th className="text-black">Sales ID</th>
-                                    <th className="text-black">Customer Name</th>
-                                    <th className="text-black">Customer Number</th>
-                                    <th className="text-black">Customer Address</th>
-                                    <th className="text-black">Date</th>
-                                    <th className="text-black">Returned Date</th>
-                                    <th className="text-black">Total Price</th>
+                                    <th className="text-black">Name</th>
+                                    <th className="text-black">Amount</th>
+                                    <th className="text-black">Details</th>
+                                    <th className="text-black">Loan Date From</th>
+                                    <th className="text-black">Loan Date To</th>
+                                    <th className="text-black">On Going</th>
                                     {/* <th className="text-black">Invoice</th> */}
                                 </tr>
                             </tfoot>
