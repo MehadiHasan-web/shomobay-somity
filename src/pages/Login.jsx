@@ -1,9 +1,23 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login_img from '../../public/login_img.png';
 import axios from 'axios';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
+import useAuth from './../hooks/useAuth';
+
 
 const Login = () => {
+
+  //navigate
+  const navigate = useNavigate()
+
+  // auth
+  const {setUser, baseUrl, setLoading} = useAuth();
+
+
+  // error message
+  const [error, setError] = useState('')
 
   const LoginForm = (event) => {
     event.preventDefault();
@@ -11,16 +25,37 @@ const Login = () => {
     const phoneNumber = form.number.value;
     const password = form.password.value;
     const data = { phoneNumber, password }
-    console.log(data)
 
-    axios.post('http://somobay.xcode.com.bd/api/v1/login/', data)
-      .then(function (response) {
-        console.log(response);
+    axios.post(`${baseUrl}/login/`, data)
+
+      .then((response) => {
+        if(response.status === 200){
+          //loading
+          setLoading(true)
+
+           // user set
+          setUser(response.data)
+
+          // token set
+          localStorage.setItem('token',response.data.token)
+        
+          //navigate
+          navigate('/')
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You are logged in now!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        if(error){
+          setError(error.message);
+        }
       });
-
 
     form.reset()
 
@@ -53,6 +88,7 @@ const Login = () => {
                   <button type='submit' className="btn bg-black text-white hover:bg-black">Login</button>
                 </div>
               </form>
+              <p className='text-red-500'>{error && error}</p>
               <div className="divider">or continue</div>
               {/* <button className=" flex justify-center items-center gap-2 border-[1px] border-gray-300 py-2 rounded-xl my-3">
                 <img src={googlelogo} className='w-7 h-7'></img>
@@ -63,11 +99,12 @@ const Login = () => {
               </div>
             </div>
             <div className='hidden sm:block sm:flex-1'>
-              <img src={login_img} className=' w-full h-full rounded-bl-[80px] rounded-xl shadow-2xl'></img>
+              <img src={login_img} className=' w-full h-full xl:h-[500px] rounded-bl-[80px] rounded-xl shadow-2xl'></img>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

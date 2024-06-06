@@ -22,7 +22,7 @@ const Sidebar = () => {
       {/* link section start */}
       <ul className=" pl-3 space-y-3">
         <li className="text-[#9494ad]"><Link to="/users" className="flex items-center gap-3"><FaUsers className="xl:text-3xl"></FaUsers><span className="xl:text-base">Total User</span></Link></li>
-        <li className="text-[#9494ad]"><Link to="/register" className="flex items-center gap-3"><MdOutlineVerifiedUser className="xl:text-3xl"></ MdOutlineVerifiedUser><span className="xl:text-base">Register</span></Link></li>
+        <li className="text-[#9494ad]"><Link to="/user-register" className="flex items-center gap-3"><MdOutlineVerifiedUser className="xl:text-3xl"></ MdOutlineVerifiedUser><span className="xl:text-base">User Register</span></Link></li>
         <li className="text-[#9494ad]"><Link to="/myloan" className="flex items-center gap-3"><FaClipboardUser className="xl:text-3xl"></ FaClipboardUser><span className="xl:text-base">User Details</span></Link></li>
         <li className="text-[#9494ad]"><Link to="/" className="flex items-center gap-3"><FaListOl className="xl:text-3xl"></ FaListOl><span className="xl:text-base">Lone List</span></Link></li>
         <li className="text-[#9494ad]"><Link to="/" className="flex items-center gap-3"><IoCreate className="xl:text-3xl"></ IoCreate><span className="xl:text-base">Lone Create</span></Link></li>

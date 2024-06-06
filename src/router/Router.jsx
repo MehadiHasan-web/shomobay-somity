@@ -7,14 +7,19 @@ import Users from './../pages/Users';
 import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
 import LoneList from "../pages/LoneList";
+import PrivateRoute from './../privateRoute/PrivateRoute';
 
 
 
 
 export const router = createBrowserRouter([
   {
+    path: '/login',
+    element: <Login></Login>
+  },
+  {
     path: "/",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "/users",
@@ -25,10 +30,7 @@ export const router = createBrowserRouter([
         // element: <Register></Register>,
         element: <Register></Register>,
       },
-      {
-        path: '/login',
-        element: <Login></Login>
-      },
+      
       {
         path: '/myloan',
         element: <MyLoan></MyLoan>
