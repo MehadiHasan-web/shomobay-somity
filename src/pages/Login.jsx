@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login_img from '../../public/login_img.png';
 import axios from 'axios';
 import { useState } from 'react';
@@ -9,8 +9,11 @@ import useAuth from './../hooks/useAuth';
 
 const Login = () => {
 
+  //navigate
+  const navigate = useNavigate()
+
   // auth
-  const {user} = useAuth();
+  const {setUser, baseUrl, setLoading} = useAuth();
 
 
   // error message
@@ -23,10 +26,22 @@ const Login = () => {
     const password = form.password.value;
     const data = { phoneNumber, password }
 
-    axios.post('http://somobay.xcode.com.bd/api/v1/login/', data)
+    axios.post(`${baseUrl}/login/`, data)
+
       .then((response) => {
-        console.log(response)
         if(response.status === 200){
+          //loading
+          setLoading(true)
+
+           // user set
+          setUser(response.data)
+
+          // token set
+          localStorage.setItem('token',response.data.token)
+        
+          //navigate
+          navigate('/')
+
           Swal.fire({
             position: "center",
             icon: "success",
@@ -41,7 +56,6 @@ const Login = () => {
           setError(error.message);
         }
       });
-
 
     form.reset()
 

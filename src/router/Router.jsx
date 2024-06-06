@@ -7,6 +7,7 @@ import Users from './../pages/Users';
 import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
 import LoneList from "../pages/LoneList";
+import PrivateRoute from './../privateRoute/PrivateRoute';
 
 
 
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "/users",
