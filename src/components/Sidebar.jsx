@@ -1,5 +1,5 @@
 
-import { FaListOl, FaUsers} from "react-icons/fa";
+import { FaListOl, FaUsers } from "react-icons/fa";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { FaClipboardUser } from "react-icons/fa6";
 import { IoCreate } from "react-icons/io5";
@@ -16,7 +16,7 @@ const Sidebar = () => {
       {/* title section end */}
       {/* userProfile section start */}
       <div>
-        <img src={userProfile} alt="" className="xl:w-[50%] xl:h-[50%] mx-auto"/>
+        <img src={userProfile} alt="" className="xl:w-[50%] xl:h-[50%] mx-auto" />
       </div>
       {/* userProfile section end */}
       {/* link section start */}
@@ -28,6 +28,7 @@ const Sidebar = () => {
         <li className="text-[#9494ad]"><Link to="/" className="flex items-center gap-3"><IoCreate className="xl:text-3xl"></ IoCreate><span className="xl:text-base">Lone Create</span></Link></li>
         <li className="text-[#9494ad]"><Link to="/" className="flex items-center gap-3"><GiReceiveMoney className="xl:text-3xl"></ GiReceiveMoney><span className="xl:text-base">Lone Received</span></Link></li>
         <li className="text-[#9494ad]"><Link to="/loan" className="flex items-center gap-3"><GiTakeMyMoney className="xl:text-3xl"></ GiTakeMyMoney><span className="xl:text-base">Lone</span></Link></li>
+        <li className="text-[#9494ad]"><Link to="/loan-list" className="flex items-center gap-3"><span className="xl:text-base">Lone List</span></Link></li>
       </ul>
       {/* link section end */}
 

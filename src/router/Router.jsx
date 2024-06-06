@@ -6,6 +6,7 @@ import Users from './../pages/Users';
 // import Register from "../pages/Register";
 import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
+import LoneList from "../pages/LoneList";
 
 
 
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: '/loan',
         element: <Loan></Loan>
+      },
+      {
+        path: '/loan-list',
+        element: <LoneList />,
       }
     ],
   },
