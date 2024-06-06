@@ -9,12 +9,12 @@ const Register = () => {
         event.preventDefault();
         const form = event.target;
 
-        const name = form.name.value;
+        const username = form.name.value;
         const phoneNumber = form.number.value;
         const password = form.password.value;
         const user_type = form.user_type.value;
 
-        const data = { name, phoneNumber, password, user_type }
+        const data = { username, phoneNumber, password, user_type }
         console.log(data)
 
         axios.post('http://somobay.xcode.com.bd/api/v1/register/', data, {
