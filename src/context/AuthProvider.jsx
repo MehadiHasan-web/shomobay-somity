@@ -12,18 +12,11 @@ const AuthProvider = ({children}) => {
   // loading
   const [loading, setLoading] = useState(true)
 
-  // logout
-  const logOut = () => {
-    localStorage.removeItem('token')
-    navigate('/login')
-    setLoading(false)
-  }
-
   //Base Url
   const baseUrl = "http://somobay.xcode.com.bd/api/v1"
 
   // const authIn
-  const authInfo = {user, setUser, loading, setLoading, baseUrl, logOut}
+  const authInfo = {user, setUser, loading, setLoading, baseUrl}
 
 
   return (
