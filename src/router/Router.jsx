@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import MyLoan from "../pages/MyLoan";
-import Users from './../pages/Users';
 // import Register from "../pages/Register";
 import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
@@ -11,6 +10,9 @@ import PrivateRoute from './../privateRoute/PrivateRoute';
 import Society from "../pages/Society";
 import LoanInstallment from "../pages/LoanInstallment";
 import Installment from "../pages/Installment";
+import InstallmentCreate from "../pages/InstallmentCreate";
+import LoanInstallmentCreate from "../pages/LoanInstallmentCreate";
+import MainLayout from "../layout/MainLayout";
 
 
 
@@ -22,11 +24,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: <PrivateRoute> <MainLayout /> </PrivateRoute>,
     children: [
       {
         path: "/",
-        element: <Users></Users>,
+        element: <Dashboard />,
       },
       {
         path: "/register",
@@ -53,6 +55,14 @@ export const router = createBrowserRouter([
       {
         path: '/loanInstallment',
         element: <LoanInstallment />,
+      },
+      {
+        path: '/loanInstallment-create',
+        element: <LoanInstallmentCreate />,
+      },
+      {
+        path: '/installment-create',
+        element: <InstallmentCreate />,
       },
       {
         path: '/installment',
