@@ -1,4 +1,4 @@
-import { FaListOl, FaUsers } from "react-icons/fa";
+import { FaListOl, FaDownload } from "react-icons/fa";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { FaClipboardUser } from "react-icons/fa6";
 import { IoCreate } from "react-icons/io5";
@@ -6,6 +6,10 @@ import { GiReceiveMoney, GiTakeMyMoney } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
 import userProfile from "../../public/userProfile.svg";
 import useAuth from "../hooks/useAuth";
+import { GiBank } from "react-icons/gi";
+import { MdDashboard } from "react-icons/md";
+import { RiBankLine } from "react-icons/ri";
+import { LuBuilding2 } from "react-icons/lu";
 
 
 const Sidebar = () => {
@@ -40,7 +44,7 @@ const Sidebar = () => {
       <ul className=" pl-3 space-y-3">
         <li className="text-[#9494ad]">
           <Link to="/" className="flex items-center gap-3">
-            <FaUsers className="xl:text-3xl"></FaUsers>
+            <MdDashboard className="xl:text-3xl"></MdDashboard>
             <span className="xl:text-base">Dashboard</span>
           </Link>
         </li>
@@ -70,25 +74,25 @@ const Sidebar = () => {
         </li>
         <li className="text-[#9494ad]">
           <Link to="/loanInstallment" className="flex items-center gap-3">
-            <IoCreate className="xl:text-3xl"></IoCreate>
+            <GiBank className="xl:text-3xl"></GiBank>
             <span className="xl:text-base">LoanInstallment</span>
           </Link>
         </li>
         <li className="text-[#9494ad]">
           <Link to="/loanInstallment-create" className="flex items-center gap-3">
-            <IoCreate className="xl:text-3xl"></IoCreate>
+            <LuBuilding2 className="xl:text-3xl"></LuBuilding2>
             <span className="xl:text-base">LoanInstallment Create</span>
           </Link>
         </li>
         <li className="text-[#9494ad]">
           <Link to="/installment-create" className="flex items-center gap-3">
-            <IoCreate className="xl:text-3xl"></IoCreate>
+            <RiBankLine className="xl:text-3xl"></RiBankLine>
             <span className="xl:text-base">Installment Create</span>
           </Link>
         </li>
         <li className="text-[#9494ad]">
           <Link to="/installment" className="flex items-center gap-3">
-            <IoCreate className="xl:text-3xl"></IoCreate>
+            <FaDownload className="xl:text-3xl"></FaDownload>
             <span className="xl:text-base">Installment</span>
           </Link>
         </li>

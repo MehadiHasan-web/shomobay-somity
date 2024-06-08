@@ -13,7 +13,7 @@ const PrivateRoute = ({children}) => {
     return <p>loading...</p>
   }
 
-  if(!user && !token){
+  if(user && token){
     return <Navigate to="/login" state={{form: location}} replace></Navigate>
   }
   
