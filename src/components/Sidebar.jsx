@@ -41,11 +41,11 @@ const Sidebar = () => {
         <li className="text-[#9494ad]">
           <Link to="/" className="flex items-center gap-3">
             <FaUsers className="xl:text-3xl"></FaUsers>
-            <span className="xl:text-base">Total User</span>
+            <span className="xl:text-base">Dashboard</span>
           </Link>
         </li>
         <li className="text-[#9494ad]">
-          <Link to="/user-register" className="flex items-center gap-3">
+          <Link to="/register" className="flex items-center gap-3">
             <MdOutlineVerifiedUser className="xl:text-3xl"></MdOutlineVerifiedUser>
             <span className="xl:text-base">User Register</span>
           </Link>
@@ -72,6 +72,18 @@ const Sidebar = () => {
           <Link to="/loanInstallment" className="flex items-center gap-3">
             <IoCreate className="xl:text-3xl"></IoCreate>
             <span className="xl:text-base">LoanInstallment</span>
+          </Link>
+        </li>
+        <li className="text-[#9494ad]">
+          <Link to="/loanInstallment-create" className="flex items-center gap-3">
+            <IoCreate className="xl:text-3xl"></IoCreate>
+            <span className="xl:text-base">LoanInstallment Create</span>
+          </Link>
+        </li>
+        <li className="text-[#9494ad]">
+          <Link to="/installment-create" className="flex items-center gap-3">
+            <IoCreate className="xl:text-3xl"></IoCreate>
+            <span className="xl:text-base">Installment Create</span>
           </Link>
         </li>
         <li className="text-[#9494ad]">
