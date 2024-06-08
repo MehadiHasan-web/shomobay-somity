@@ -25,7 +25,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="xl:space-y-8 bg-[#FFFFFF]">
+    <div className="xl:space-y-8 bg-[#FFFFFF] h-[100%]">
       {/* title section start */}
       <h1 className="xl:text-xl xl:uppercase xl:font-bold text-center text-[#363434]">
         <Link to="/">dashboard</Link>
