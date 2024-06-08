@@ -13,10 +13,10 @@ const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true)
 
   //Base Url
-  const baseUrl = "http://somobay.xcode.com.bd/api/v1"
+  const baseURL = "http://somobay.xcode.com.bd/api/v1"
 
   // const authIn
-  const authInfo = {user, setUser, loading, setLoading, baseUrl}
+  const authInfo = {user, setUser, loading, setLoading, baseURL}
 
 
   return (
