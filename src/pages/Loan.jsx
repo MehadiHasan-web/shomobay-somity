@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
+import Title from "../components/Title";
 
 
 
@@ -73,7 +74,8 @@ const Loan = () => {
 
   return (
     <div className="">
-
+      {/* title */}
+    <Title title="Loan"></Title>
       {/* Breadcrumb */}
       <nav
         className="flex bg-gray-50 text-gray-700 border border-gray-200 py-3 px-5 rounded-lg  mt-12  mx-auto w-full max-w-[550px]"

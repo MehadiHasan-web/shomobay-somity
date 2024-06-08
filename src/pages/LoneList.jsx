@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import axios from "axios";
 import useAuth from './../hooks/useAuth';
+import Title from "../components/Title";
 
 
 const LoneList = () => {
@@ -89,6 +90,8 @@ const LoneList = () => {
 
     return (
         <div>
+          {/* title */}
+    <Title title="Loan List"></Title>
             {/* table section start */}
             <div >
                 <div className="md:container md:mx-auto md:px-12 px-2">

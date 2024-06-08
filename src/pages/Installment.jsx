@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
+import Title from "../components/Title";
 
 
 const Installment = () => {
@@ -78,6 +79,8 @@ const Installment = () => {
 
     return (
         <div>
+          {/* title */}
+    <Title title="Installment"></Title>
             {/* table section start */}
             <div >
                 <div className="md:container md:mx-auto md:px-12 px-2">

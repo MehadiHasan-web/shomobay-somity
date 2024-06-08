@@ -1,6 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
+import Title from "../components/Title";
 
 
 const Register = () => {
@@ -47,9 +48,11 @@ const Register = () => {
 
     return (
         <div className="">
+            {/* title */}
+    <Title title="User Register"></Title>
             {/* content section start */}
             <div className='container mx-auto flex justify-center mt-10 px-5 h-full'>
-                <div className="card shrink-0 w-full md:w-2/3 shadow-2xl bg-base-100 h-[100%]">
+                <div className="w-full md:w-2/3 shadow-2xl bg-base-100 h-[100%]">
                     <form onSubmit={registerData} className="card-body h-full">
                         {/* title section start */}
                         <h1 className="text-xl text-blue-600">User Register Form</h1>

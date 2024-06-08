@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../assets/dashboard.css"
 import useAuth from './../hooks/useAuth';
+import Title from "../components/Title";
+import '../assets/Dashboard.css'
 
 
 const Dashboard = () => {
@@ -57,6 +58,8 @@ const Dashboard = () => {
 
   return (
     <>
+    {/* title */}
+    <Title title="Dashboard"></Title>
       <div className="container mx-auto mt-6">
 
 

@@ -3,10 +3,13 @@ import { GoArrowSwitch } from "react-icons/go";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
 import { Link } from 'react-router-dom';
+import Title from '../components/Title';
 
 const MyLoan = () => {
     return (
         <div className='p-20'>
+            {/* title */}
+    <Title title="My Loan"></Title>
             <div className="flex gap-4 pl-4 items-center mb-5">
             <h2 className='text-5xl font-bold mr-2'>My Loan </h2>
             <button className='btn btn-success rounded-full btn-sm text-white'>Active</button>
