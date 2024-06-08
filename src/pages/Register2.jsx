@@ -1,8 +1,11 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 
 const Register = () => {
+
+    const {baseURL} = useAuth()
 
 
     const token = 'ef7c3c35d4d5928611da93ea788131ae89833ddf';
@@ -17,7 +20,7 @@ const Register = () => {
 
         const data = { username, phoneNumber, password, user_type }
 
-        axios.post('http://somobay.xcode.com.bd/api/v1/register/', data, {
+        axios.post(`${baseURL}/register/`, data, {
             headers: { 'Authorization': 'token ' + token },
         }).then((response) => {
             console.log(response)

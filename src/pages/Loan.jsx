@@ -4,12 +4,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 
 
 
 const Loan = () => {
 
+  const {baseURL} = useAuth()
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -40,7 +42,7 @@ const Loan = () => {
       loanDateTo: loanDateTo
     };
 
-    axios.post('http://somobay.xcode.com.bd/api/v1/loan/', fromData, {
+    axios.post(`${baseURL}/loan/`, fromData, {
       headers: { 'Authorization': 'token ' + token },
     }).then((response) => {
       console.log(response)

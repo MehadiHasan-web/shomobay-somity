@@ -4,12 +4,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 
 
 
 const Society = () => {
 
+    const {baseURL} = useAuth()
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
@@ -32,7 +34,7 @@ const Society = () => {
             totalLoanGiven: parseInt(totalLoanGiven)
         };
 
-        axios.post('http://somobay.xcode.com.bd/api/v1/society/', fromData, {
+        axios.post(`${baseURL}/society/`, fromData, {
             headers: { 'Authorization': 'token ' + token },
         }).then((response) => {
             console.log(response)

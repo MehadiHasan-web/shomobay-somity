@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useAuth from "../hooks/useAuth";
 
 const LoanInstallment = () => {
-  // const { baseURL } = useContext(AuthContext)
+  const { baseURL } = useAuth()
   const [searchText, setSearchText] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
@@ -17,13 +18,14 @@ const LoanInstallment = () => {
 
   // Fetch data (replace with your actual data fetching logic)
   useEffect(() => {
+    const token = localStorage.getItem('token')
     const fetchData = async () => {
       const response = await fetch(
-        "http://somobay.xcode.com.bd/api/v1/loanInstallment/",
+        `${baseURL}/loanInstallment/`,
         {
           headers: {
             Authorization:
-              "token " + "ef7c3c35d4d5928611da93ea788131ae89833ddf",
+              "token " + token,
           },
         }
       );
@@ -32,7 +34,7 @@ const LoanInstallment = () => {
       setFilteredData(data);
     };
     fetchData();
-  }, []);
+  }, [baseURL]);
 
   // pagination button
   const nextPage = () => {

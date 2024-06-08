@@ -1,13 +1,14 @@
 
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 
 
 
 const LoanInstallmentCreate = () => {
 
-
+    const {baseURL} = useAuth()
 
 
     const installmentAmount = (event) => {
@@ -22,7 +23,7 @@ const LoanInstallmentCreate = () => {
             installmentAmount: parseInt(installmentAmount),
         };
 
-        axios.post('http://somobay.xcode.com.bd/api/v1/loanInstallment/', fromData, {
+        axios.post(`${baseURL}/loanInstallment/`, fromData, {
             headers: { 'Authorization': 'token ' + token },
         }).then((response) => {
             console.log(response)
@@ -44,9 +45,6 @@ const LoanInstallmentCreate = () => {
                     text: `${error.message}`,
                 });
             });
-
-
-
     }
 
 

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useAuth from "../hooks/useAuth";
 
 
 const Installment = () => {
 
 
-  // const { baseURL } = useContext(AuthContext)
+  const { baseURL } = useAuth()
   const [searchText, setSearchText] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
@@ -21,13 +22,14 @@ const Installment = () => {
 
 
     useEffect(() => {
+      const token = localStorage.getItem('token')
         const fetchData = async () => {
           const response = await fetch(
-            "http://somobay.xcode.com.bd/api/v1/installment/",
+            `${baseURL}/installment/`,
             {
               headers: {
                 Authorization:
-                  "token " + "ef7c3c35d4d5928611da93ea788131ae89833ddf",
+                  "token " + token,
               },
             }
           );
@@ -36,7 +38,7 @@ const Installment = () => {
           setFilteredData(data);
         };
         fetchData();
-      }, []);
+      }, [baseURL]);
 
       // pagination button
   const nextPage = () => {

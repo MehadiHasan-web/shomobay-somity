@@ -1,13 +1,14 @@
 
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 
 
 
 const InstallmentCreate = () => {
 
-
+    const {baseURL} = useAuth()
 
 
     const societyForm = (event) => {
@@ -24,7 +25,7 @@ const InstallmentCreate = () => {
             receiver: receiver,
         };
 
-        axios.post('http://somobay.xcode.com.bd/api/v1/installment/', fromData, {
+        axios.post(`${baseURL}/installment/`, fromData, {
             headers: { 'Authorization': 'token ' + token },
         }).then((response) => {
             console.log(response)
