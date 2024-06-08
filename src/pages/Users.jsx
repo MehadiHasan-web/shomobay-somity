@@ -67,10 +67,6 @@ const Users = () => {
 
 
 
-
-
-
-
     const showDataPerPage = (e) => {
         e.preventDefault();
         setPostPerPage(parseInt(e.target.value));
