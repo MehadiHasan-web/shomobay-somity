@@ -10,7 +10,7 @@ import useAuth from "../hooks/useAuth";
 
 const Sidebar = () => {
 
-  const {setLoading} = useAuth()
+  const { setLoading } = useAuth()
 
   const navigate = useNavigate()
 
@@ -63,9 +63,21 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="text-[#9494ad]">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/society" className="flex items-center gap-3">
             <IoCreate className="xl:text-3xl"></IoCreate>
-            <span className="xl:text-base">Lone Create</span>
+            <span className="xl:text-base">Create Society</span>
+          </Link>
+        </li>
+        <li className="text-[#9494ad]">
+          <Link to="/loanInstallment" className="flex items-center gap-3">
+            <IoCreate className="xl:text-3xl"></IoCreate>
+            <span className="xl:text-base">LoanInstallment</span>
+          </Link>
+        </li>
+        <li className="text-[#9494ad]">
+          <Link to="/installment" className="flex items-center gap-3">
+            <IoCreate className="xl:text-3xl"></IoCreate>
+            <span className="xl:text-base">Installment</span>
           </Link>
         </li>
         <li className="text-[#9494ad]">

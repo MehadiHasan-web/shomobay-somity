@@ -8,6 +8,9 @@ import Register from "../pages/Register2";
 import Loan from "../pages/Loan";
 import LoneList from "../pages/LoneList";
 import PrivateRoute from './../privateRoute/PrivateRoute';
+import Society from "../pages/Society";
+import LoanInstallment from "../pages/LoanInstallment";
+import Installment from "../pages/Installment";
 
 
 
@@ -30,7 +33,7 @@ export const router = createBrowserRouter([
         // element: <Register></Register>,
         element: <Register></Register>,
       },
-      
+
       {
         path: '/myloan',
         element: <MyLoan></MyLoan>
@@ -42,6 +45,18 @@ export const router = createBrowserRouter([
       {
         path: '/loan-list',
         element: <LoneList />,
+      },
+      {
+        path: '/society',
+        element: <Society />,
+      },
+      {
+        path: '/loanInstallment',
+        element: <LoanInstallment />,
+      },
+      {
+        path: '/installment',
+        element: <Installment />,
       }
     ],
   },

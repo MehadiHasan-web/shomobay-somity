@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
-import { Link } from "react-router-dom";
-import { format } from "date-fns";
 import axios from "axios";
 
 
-const LoneList = () => {
+const LoanInstallment = () => {
 
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-    const [lone, setLone] = useState([]);
+
+    const [loanInstallment, setLoanInstallment] = useState([]);
     // const { baseURL } = useContext(AuthContext)
     const [searchText, setSearchText] = useState("");
     const [filteredData, setFilteredData] = useState([]);
@@ -48,24 +44,24 @@ const LoneList = () => {
         //     .then((res) => res.data)
         //     .then((data) => {
         //         console.log(data)
-        //         setLone(data)
+        //         setLoanInstallment(data)
         //     })
         //     .catch((error) => console.error("Error fetching data:", error));
 
 
-        axios.get('http://somobay.xcode.com.bd/api/v1/loan/', {
+        axios.get('http://somobay.xcode.com.bd/api/v1/loanInstallment/', {
             headers: { 'Authorization': 'token ' + 'ef7c3c35d4d5928611da93ea788131ae89833ddf' },
         }).then((response) => {
             console.log(response)
-            setLone(response.data)
+            setLoanInstallment(response.data)
         }).catch(function (error) {
             console.log(error.massage)
         });
 
     }, []);
 
+    console.log(loanInstallment)
 
-    console.log(lone)
 
 
 
@@ -94,7 +90,7 @@ const LoneList = () => {
             <div >
                 <div className="md:container md:mx-auto md:px-12 px-2">
                     <div className="flex justify-center my-3 ">
-                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">Loan List</h2>
+                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">Loan Installment List</h2>
                     </div>
 
                     {/* search bar  */}
@@ -134,41 +130,34 @@ const LoneList = () => {
                             <thead className="bg-slate-200	">
                                 <tr>
                                     <th className="text-black">No.</th>
-                                    <th className="text-black">Name</th>
-                                    <th className="text-black">Amount</th>
-                                    <th className="text-black">Details</th>
-                                    <th className="text-black">Loan Date From</th>
-                                    <th className="text-black">Loan Date To</th>
-                                    <th className="text-black">On Going</th>
+                                    <th className="text-black">Installment Amount</th>
+                                    <th className="text-black">Installment Date</th>
+                                    <th className="text-black">Installment Number</th>
+                                    <th className="text-black">Loan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    lone.map((item, index) => <tr key={item.id} className={`${index % 2 == 1 ? 'bg-slate-200 border-b-[1px] border-slate-300' : 'bg-white border-b-[1px] border-slate-300'}`}>
+                                    loanInstallment.map((item, index) => <tr key={item.id} className={`${index % 2 == 1 ? 'bg-slate-200 border-b-[1px] border-slate-300' : 'bg-white border-b-[1px] border-slate-300'}`}>
                                         <td>{++index}</td>
                                         <td>
                                             <div className="flex items-center gap-3">
 
                                                 <div>
-                                                    <div className="font-bold">{item?.User}</div>
+                                                    <div className="font-bold">{item?.installmentAmount}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p>{item?.amount}</p>
+                                            <p>{item?.installmentDate}</p>
                                         </td>
                                         <td>
-                                            <p>{item?.details}</p>
+                                            <p>{item?.installmentNumber}</p>
                                         </td>
                                         <td>
-                                            <p>{item?.loanDateFrom}</p>
+                                            <p>{item?.loan}</p>
                                         </td>
-                                        <td>
-                                            <p>{item?.loanDateTo}</p>
-                                        </td>
-                                        <td>
-                                            <p>{item?.status}</p>
-                                        </td>
+
 
                                     </tr>)
                                 }
@@ -177,12 +166,10 @@ const LoneList = () => {
                             <tfoot className="bg-slate-200	">
                                 <tr>
                                     <th className="text-black">No.</th>
-                                    <th className="text-black">Name</th>
-                                    <th className="text-black">Amount</th>
-                                    <th className="text-black">Details</th>
-                                    <th className="text-black">Loan Date From</th>
-                                    <th className="text-black">Loan Date To</th>
-                                    <th className="text-black">On Going</th>
+                                    <th className="text-black">Installment Amount</th>
+                                    <th className="text-black">Installment Date</th>
+                                    <th className="text-black">Installment Number</th>
+                                    <th className="text-black">Loan</th>
                                 </tr>
                             </tfoot>
 
@@ -207,4 +194,4 @@ const LoneList = () => {
     );
 };
 
-export default LoneList;
+export default LoanInstallment;
