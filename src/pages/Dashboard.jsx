@@ -2,13 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from './../hooks/useAuth';
 import Title from "../components/Title";
-import '../assets/Dashboard.css'
+import '../assets/dashboard.css'
 
 
 const Dashboard = () => {
 
   //baseurl
-  const {baseURL} = useAuth()
+  const { baseURL } = useAuth()
 
   const [society, setSociety] = useState([]);
   // loan state
@@ -33,38 +33,29 @@ const Dashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    // fetch(`http://somobay.xcode.com.bd/api/v1/loan/`, {
-    //     headers: { 'Authorization': 'token ' + 'ef7c3c35d4d5928611da93ea788131ae89833ddf' }
-    // })
-    //     .then((res) => res.data)
-    //     .then((data) => {
-    //         console.log(data)
-    //         setLone(data)
-    //     })
-    //     .catch((error) => console.error("Error fetching data:", error));
 
 
     axios.get(`${baseURL}/loan/`, {
-        headers: { 'Authorization': 'token ' + token },
+      headers: { 'Authorization': 'token ' + token },
     }).then((response) => {
-        setLoanInstallment(response.data);
+      setLoanInstallment(response.data);
     }).catch(function (error) {
-        console.log(error.massage)
+      console.log(error.massage)
     });
 
-}, [baseURL]);
+  }, [baseURL]);
 
 
 
   return (
     <>
-    {/* title */}
-    <Title title="Dashboard"></Title>
+      {/* title */}
+      <Title title="Dashboard"></Title>
       <div className="container mx-auto mt-6">
 
 
         {/* card  */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="flex justify-around gap-4 ">
 
           {/* liquid cash 1  */}
           <div>
@@ -343,78 +334,77 @@ const Dashboard = () => {
 
         {/* table data show */}
         <div className="md:container md:mx-auto md:px-12 px-2 my-10">
-        <div className="flex justify-center my-3 ">
-                        <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">Loan List</h2>
-                    </div>
-        <div className=" shadow-lg rounded p-2">
+          <div className="flex justify-center my-3 ">
+            <h2 className="font-semibold border-b-[1px] border-indigo-500 text-2xl  ">Loan List</h2>
+          </div>
+          <div className=" shadow-lg rounded p-2">
 
-<table className="table table-base">
-    {/* head */}
-    <thead className="bg-slate-200	">
-        <tr>
-            <th className="text-black">No.</th>
-            <th className="text-black">Name</th>
-            <th className="text-black">Amount</th>
-            <th className="text-black">Details</th>
-            <th className="text-black">Loan Date From</th>
-            <th className="text-black">Loan Date To</th>
-            <th className="text-black">On Going</th>
-        </tr>
-    </thead>
-    <tbody>
-        {
-            loanInstallment.map((item, index) => <tr key={item.id}
-            className={`${
-              index % 2 == 1
-                ? "bg-slate-200 border-b-[1px] border-slate-300"
-                : "bg-white border-b-[1px] border-slate-300"
-            }`}>
-                <td>{++index}</td>
-                <td>
-                    <div className="flex items-center gap-3">
+            <table className="table table-base">
+              {/* head */}
+              <thead className="bg-slate-200	">
+                <tr>
+                  <th className="text-black">No.</th>
+                  <th className="text-black">Name</th>
+                  <th className="text-black">Amount</th>
+                  <th className="text-black">Details</th>
+                  <th className="text-black">Loan Date From</th>
+                  <th className="text-black">Loan Date To</th>
+                  <th className="text-black">On Going</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  loanInstallment.map((item, index) => <tr key={item.id}
+                    className={`${index % 2 == 1
+                      ? "bg-slate-200 border-b-[1px] border-slate-300"
+                      : "bg-white border-b-[1px] border-slate-300"
+                      }`}>
+                    <td>{++index}</td>
+                    <td>
+                      <div className="flex items-center gap-3">
 
                         <div>
-                            <div className="font-bold">{item?.User}</div>
+                          <div className="font-bold">{item?.User}</div>
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <p>{item?.amount}</p>
-                </td>
-                <td>
-                    <p>{item?.details}</p>
-                </td>
-                <td>
-                    <p>{item?.loanDateFrom}</p>
-                </td>
-                <td>
-                    <p>{item?.loanDateTo}</p>
-                </td>
-                <td>
-                    <p>{item?.status}</p>
-                </td>
+                      </div>
+                    </td>
+                    <td>
+                      <p>{item?.amount}</p>
+                    </td>
+                    <td>
+                      <p>{item?.details}</p>
+                    </td>
+                    <td>
+                      <p>{item?.loanDateFrom}</p>
+                    </td>
+                    <td>
+                      <p>{item?.loanDateTo}</p>
+                    </td>
+                    <td>
+                      <p>{item?.status}</p>
+                    </td>
 
-            </tr>)
-        }
-    </tbody>
-    {/* foot */}
-    <tfoot className="bg-slate-200	">
-        <tr>
-            <th className="text-black">No.</th>
-            <th className="text-black">Name</th>
-            <th className="text-black">Amount</th>
-            <th className="text-black">Details</th>
-            <th className="text-black">Loan Date From</th>
-            <th className="text-black">Loan Date To</th>
-            <th className="text-black">On Going</th>
-        </tr>
-    </tfoot>
+                  </tr>)
+                }
+              </tbody>
+              {/* foot */}
+              <tfoot className="bg-slate-200	">
+                <tr>
+                  <th className="text-black">No.</th>
+                  <th className="text-black">Name</th>
+                  <th className="text-black">Amount</th>
+                  <th className="text-black">Details</th>
+                  <th className="text-black">Loan Date From</th>
+                  <th className="text-black">Loan Date To</th>
+                  <th className="text-black">On Going</th>
+                </tr>
+              </tfoot>
 
-</table>
+            </table>
 
-</div>
+          </div>
         </div>
-        
+
 
 
       </div>

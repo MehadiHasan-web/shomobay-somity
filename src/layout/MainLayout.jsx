@@ -7,7 +7,7 @@ import { useState } from "react";
 const MainLayout = () => {
 
   // toggle sidebar
-  const [open,setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   const openFun = () => {
     setOpen(!open)
@@ -15,16 +15,17 @@ const MainLayout = () => {
 
   return (
     <>
-    {/*  */}
+      {/*  */}
       {/* sidebar and page section start */}
       <div className="lg:flex lg:justify-between lg:items-center h-screen ">
         {/* sidebar section start */}
-        <div className="hidden lg:w-[13%] h-[100%] lg:py-4 border-r-[2px] border-r-slate-200">
+
+        <div className="hidden md:flex md:w-[13%] h-[100%] lg:py-4 border-r-[2px] border-r-slate-200">
           <Sidebar></Sidebar>
         </div>
         {/* sidebar section end */}
         {/* page section start */}
-        <div className="w-full lg:w-[87%] bg-[#F3F8FC] h-[100%]">
+        <div className="w-full md:lg:w-[87%] bg-[#F3F8FC] h-[100%]">
           <Outlet></Outlet>
         </div>
         {/* page section end */}

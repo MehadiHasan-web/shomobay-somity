@@ -56,32 +56,31 @@ const LoanInstallment = () => {
     setPostPerPage(parseInt(e.target.value));
   };
 
-// Handle search input change
-const handleSearchInputChange = (e) => {
-  setSearchText(e.target.value.toLowerCase());
-};
+  // Handle search input change
+  const handleSearchInputChange = (e) => {
+    setSearchText(e.target.value.toLowerCase());
+  };
 
-// useEffect(() => {
-//   let filteredResults = loanInstallment;
+  useEffect(() => {
+    let filteredResults = loanInstallment;
 
-//   // Applying the search filter
-//   if (searchText.trim() !== "") {
-//     const searchTextLower = searchText.toLowerCase();
-//     filteredResults = filteredResults.filter(item =>
-//       item.installmentAmount.toString().toLowerCase().includes(searchTextLower) ||
-//       item.installmentDate.toLowerCase().includes(searchTextLower) ||
-//       item.installmentNumber.toString().toLowerCase().includes(searchTextLower) ||
-//       item.loan.toLowerCase().includes(searchTextLower)
-//     );
-//     // Reset to first page when search text changes
-//     setCurrentPage(1);
-//   }
+    // Applying the search filter
+    if (searchText.trim() !== "") {
+      const searchTextLower = searchText.toLowerCase();
+      filteredResults = filteredResults.filter(item =>
+        item.installmentAmount.toString().toLowerCase().includes(searchTextLower) ||
+        item.installmentDate.toLowerCase().includes(searchTextLower) ||
+        item.installmentNumber.toString().toLowerCase().includes(searchTextLower)
+      );
+      // Reset to first page when search text changes
+      setCurrentPage(1);
+    }
 
-//   setFilteredData(filteredResults);
-// }, [loanInstallment, searchText]);
-
+    setFilteredData(filteredResults);
+  }, [loanInstallment, searchText]);
 
 
+  console.log(searchText)
 
   // clear search
   const handleClearSearch = (e) => {
@@ -92,7 +91,7 @@ const handleSearchInputChange = (e) => {
   return (
     <div>
       {/* title */}
-    <Title title="Loan Installment"></Title>
+      <Title title="Loan Installment"></Title>
       {/* table section start */}
       <div>
         <div className="md:container md:mx-auto md:px-12 px-2">
@@ -183,11 +182,10 @@ const handleSearchInputChange = (e) => {
                 {(loanInstallment && currentPosts).map((item, index) => (
                   <tr
                     key={item.id}
-                    className={`${
-                      index % 2 == 1
-                        ? "bg-slate-200 border-b-[1px] border-slate-300"
-                        : "bg-white border-b-[1px] border-slate-300"
-                    }`}
+                    className={`${index % 2 == 1
+                      ? "bg-slate-200 border-b-[1px] border-slate-300"
+                      : "bg-white border-b-[1px] border-slate-300"
+                      }`}
                   >
                     <td>{++index}</td>
                     <td>
@@ -211,7 +209,7 @@ const handleSearchInputChange = (e) => {
                   </tr>
                 ))}
               </tbody>
-              
+
 
               {/* foot */}
               <tfoot className="bg-slate-200	">
