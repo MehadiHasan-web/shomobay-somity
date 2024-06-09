@@ -8,9 +8,9 @@ const MainLayout = () => {
       {/* content section start */}
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col items-center justify-center h-full">
           {/* outlet section start */}
-          <div className="bg-slate-100 w-full h-full">
+          <div className="bg-slate-100 w-full h-screen">
             <Outlet></Outlet>
           </div>
           {/* outlet section end */}

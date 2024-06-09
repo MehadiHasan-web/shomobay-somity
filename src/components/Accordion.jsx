@@ -97,7 +97,7 @@ const Accordion = () => {
         const contentRef = useRef(null);
         return (
           <div key={idx} className="space-y-3">
-            <div className="relative transition-all duration-700 border rounded-xl hover:shadow-2xl">
+            <div className="relative transition-all duration-700 border rounded-xl hover:shadow-2xl hover:font-semibold ">
               <div
                 onClick={() => toggleTab(idx + 1)}
                 className="w-full p-4 text-left cursor-pointer"
@@ -126,12 +126,12 @@ const Accordion = () => {
               >
                 {
                   item.children.map((data, index) => <>
-                  <Link key={index} to={data.path} >
-                  <div className="px-6 py-3 text-gray-600 flex items-center gap-3 hover:bg-slate-200 hover:text-dark hover:font-semibold">
-                    {data?.icon}
-                    <span className="xl:text-base">{data.linkName}</span>
-                  </div>
-                </Link>
+                    <Link key={index} to={data.path} >
+                      <div className="px-6 py-3 text-gray-600 flex items-center gap-3 hover:bg-slate-200 hover:text-dark hover:font-semibold">
+                        {data?.icon}
+                        <span className="xl:text-base">{data.linkName}</span>
+                      </div>
+                    </Link>
                   </>)
                 }
               </div>
