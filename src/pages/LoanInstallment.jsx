@@ -60,7 +60,7 @@ const LoanInstallment = () => {
   const handleSearchInputChange = (e) => {
     setSearchText(e.target.value.toLowerCase());
   };
-
+  // search function
   useEffect(() => {
     let filteredResults = loanInstallment;
 
