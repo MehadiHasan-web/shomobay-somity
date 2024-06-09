@@ -1,49 +1,39 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import { useState } from "react";
-
-
+import { RiMenuFold2Fill } from "react-icons/ri";
 
 const MainLayout = () => {
-
-  // toggle sidebar
-  const [open, setOpen] = useState(false)
-
-  const openFun = () => {
-    setOpen(!open)
-  }
-
   return (
-    <>
-      {/*  */}
-      {/* sidebar and page section start */}
-      <div className="lg:flex lg:justify-between lg:items-center h-screen ">
-        {/* sidebar section start */}
-
-        <div className="hidden md:flex md:w-[13%] h-[100%] lg:py-4 border-r-[2px] border-r-slate-200">
-          <Sidebar></Sidebar>
-        </div>
-        {/* sidebar section end */}
-        {/* page section start */}
-        <div className="w-full md:lg:w-[87%] bg-[#F3F8FC] h-[100%]">
-          <Outlet></Outlet>
-        </div>
-        {/* page section end */}
-      </div>
-      {/* sidebar and page section end */}
-
-      {/* mobile sidebar */}
-      {/* <div className={`h-full bg-slate-100 ${open ? '-left-56' : 'left-0'}fixed top-0 w-[20%] z-10 `}>
-        <div className="absolute top-[50%] -right-5 z-20 ">
-          {
-            open ? <button onClick={openFun}>open</button> :
-            <button onClick={openFun}>close</button>
-          }
+    <div>
+      {/* content section start */}
+      <div className="drawer lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col items-center justify-center">
+          {/* outlet section start */}
+          <div className="bg-slate-100 w-full h-full">
+            <Outlet></Outlet>
           </div>
-
-        <Sidebar></Sidebar>
-      </div> */}
-    </>
+          {/* outlet section end */}
+          {/* drawer button */}
+          <label htmlFor="my-drawer-2" className="btn btn-sm bg-slate-300 drawer-button lg:hidden fixed top-2 -left-2"><RiMenuFold2Fill className="text-2xl text-black"></RiMenuFold2Fill></label>
+          {/* drawer button */}
+        </div>
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer-2"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <ul className="menu w-72 min-h-full bg-[#FFFFFF] text-base-content p-5 h-full">
+            {/* Sidebar content here */}
+            <div className="h-full">
+              <Sidebar></Sidebar>
+            </div>
+          </ul>
+        </div>
+      </div>
+      {/* content section end */}
+    </div>
   );
 };
 
