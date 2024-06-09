@@ -64,7 +64,7 @@ const Dashboard = () => {
 
 
         {/* card  */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="hidden grid lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 xl:gap-2 2xl:gap-4 xl:px-10">
 
           {/* liquid cash 1  */}
           <div>

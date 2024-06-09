@@ -2,62 +2,7 @@ import React from 'react';
 
 const ExtraPage = () => {
 
-  const [loanInstallment, setLoanInstallment] = useState([]);
-  // const { baseURL } = useContext(AuthContext)
-  const [searchText, setSearchText] = useState("");
-  
-  const [filteredData, setFilteredData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(20);
-  const lastPostIndex = currentPage * postPerPage;
-  const firstPostIndex = lastPostIndex - postPerPage;
-  const currentPosts = filteredData.slice(firstPostIndex, lastPostIndex)
 
-
-  let page = [];
-  for (let i = 1; i <= Math.ceil(filteredData.length / postPerPage); i++) {
-      page.push(i)
-  }
-
-  const nextPage = () => {
-      if (currentPage < page.length) {
-          setCurrentPage(currentPage + 1);
-      }
-  };
-
-  const prevPage = () => {
-      if (currentPage > 1) {
-          setCurrentPage(currentPage - 1);
-      }
-  };
-
-
-  useEffect(() => {
-      const token = localStorage.getItem('token');
-
-      // fetch(`http://somobay.xcode.com.bd/api/v1/loan/`, {
-      //     headers: { 'Authorization': 'token ' + 'ef7c3c35d4d5928611da93ea788131ae89833ddf' }
-      // })
-      //     .then((res) => res.data)
-      //     .then((data) => {
-      //         console.log(data)
-      //         setLoanInstallment(data)
-      //     })
-      //     .catch((error) => console.error("Error fetching data:", error));
-
-
-      axios.get('http://somobay.xcode.com.bd/api/v1/loanInstallment/', {
-          headers: { 'Authorization': 'token ' + 'ef7c3c35d4d5928611da93ea788131ae89833ddf' },
-      }).then((response) => {
-          console.log(response)
-          setLoanInstallment(response.data)
-      }).catch(function (error) {
-          console.log(error.massage)
-      });
-
-  }, []);
-
-  console.log(loanInstallment)
 
 
 

@@ -31,15 +31,6 @@ const Sidebar = () => {
         <Link to="/">dashboard</Link>
       </h1>
       {/* title section end */}
-      {/* userProfile section start */}
-      <div>
-        <img
-          src={userProfile}
-          alt=""
-          className="xl:w-[50%] xl:h-[50%] mx-auto"
-        />
-      </div>
-      {/* userProfile section end */}
       {/* link section start */}
       <ul className=" pl-3 space-y-3">
         <li className="text-[#9494ad]">
