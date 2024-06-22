@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 
 
-const Title = ({title}) => {
+const Title = ({ title }) => {
   return (
     <div>
-       <Helmet>
-        <title>Shomobay-somity | {title}</title>
+      <Helmet>
+        <title>{title} || Shomobay-somity </title>
       </Helmet>
     </div>
   );

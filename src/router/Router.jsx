@@ -13,6 +13,7 @@ import Installment from "../pages/Installment";
 import InstallmentCreate from "../pages/InstallmentCreate";
 import LoanInstallmentCreate from "../pages/LoanInstallmentCreate";
 import MainLayout from "../layout/MainLayout";
+import Profile from "../pages/Profile";
 
 
 
@@ -67,7 +68,11 @@ export const router = createBrowserRouter([
       {
         path: '/installment',
         element: <Installment />,
-      }
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
+      },
     ],
   },
 
